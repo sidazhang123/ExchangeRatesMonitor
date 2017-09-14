@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                tools:context="com.example.hacunamatata.exchangerates.usd.cn_us_settings">
+
+    <EditText
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/usd_lower"
+            tools:ignore="LabelFor" android:layout_below="@+id/threshold_text"
+            android:layout_alignParentStart="true" android:layout_toStartOf="@+id/tilde"
+            android:textAlignment="textEnd" android:textStyle="normal|bold"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/usd_higher"
+            tools:ignore="LabelFor"
+            android:layout_below="@+id/threshold_text" android:layout_toEndOf="@+id/tilde"
+            android:textStyle="normal|bold" android:textAlignment="viewStart"/>
+    <TextView
+            android:text="~"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tilde"
+            tools:ignore="HardcodedText"
+            android:layout_below="@+id/threshold_text"
+            android:layout_alignBottom="@+id/usd_lower"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" android:textStyle="normal|bold"
+            android:textAlignment="center" android:layout_alignStart="@+id/save_btn"
+            android:layout_alignEnd="@+id/save_btn"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存"
+            android:id="@+id/save_btn"
+            android:onClick="save_btn"
+            tools:ignore="HardcodedText"
+            android:layout_marginTop="23dp"
+            android:layout_below="@+id/usd_lower" android:layout_centerHorizontal="true"
+            android:textAlignment="center"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="当前汇率"
+            android:id="@+id/cur_rate_text"
+
+            tools:ignore="HardcodedText"
+            android:layout_below="@+id/save_btn" android:layout_alignStart="@+id/save_btn"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cur_rate_value"
+            tools:ignore="HardcodedText"
+            android:layout_alignStart="@+id/cur_rate_text"
+            android:layout_alignEnd="@+id/cur_rate_text" android:layout_below="@+id/cur_rate_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:text="null" android:textSize="24sp" android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark" android:textStyle="normal|bold"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_below="@+id/cur_rate_value"
+            android:layout_alignStart="@+id/cur_rate_value" android:id="@+id/timestamp"
+            android:layout_alignEnd="@+id/cur_rate_value" android:textSize="18sp" android:textAlignment="center"
+            tools:ignore="HardcodedText"/>
+    <CheckBox
+            android:text="开关此功能"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_above="@+id/cur_rate_text"
+            android:layout_alignParentStart="true" android:id="@+id/checkBox"
+    />
+    <TextView
+            android:text="刷新间隔/分"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/interval_text"
+            android:textStyle="normal|bold" android:textColor="@android:color/black"
+            android:layout_alignBaseline="@+id/checkBox" android:layout_alignBottom="@+id/checkBox"
+            android:layout_toEndOf="@+id/save_btn" android:layout_marginStart="32dp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/interval_value"
+            android:layout_alignParentEnd="true" android:layout_above="@+id/timestamp"
+            android:layout_alignStart="@+id/interval_text"/>
+    <lecho.lib.hellocharts.view.LineChartView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/graph"
+            android:layout_marginTop="240dp" android:padding="5dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="CNY->USD"
+            android:id="@+id/threshold_text"
+            tools:ignore="HardcodedText"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>

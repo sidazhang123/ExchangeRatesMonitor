@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.hacunamatata.exchangerates">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/dollar"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <!-- Activities-->
+        <activity
+                android:name=".common.SideBar"
+                android:label="@string/app_name"
+                android:theme="@style/AppTheme.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".aud.cn_au_settings">
+            <intent-filter>
+                <action android:name="com.example.hacunamatata.exchangerates.cn_au_settings" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".usd.cn_us_settings">
+            <intent-filter>
+                <action android:name="com.example.hacunamatata.exchangerates.cn_us_settings" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".usd_aud.us_au_settings">
+            <intent-filter>
+                <action android:name="com.example.hacunamatata.exchangerates.us_au_settings" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".common.alarm_activity"
+                android:excludeFromRecents="true"
+                android:launchMode="standard"
+                android:taskAffinity=""
+                android:theme="@style/MyDialogStyle" />
+
+        <!-- Receivers-->
+        <receiver android:name=".common.StartupReceiver" android:process=":newinst">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Services-->
+        <service
+                android:name=".aud.cn_au_service"
+                android:enabled="true"
+                android:priority="1000" />
+        <service
+            android:name=".usd.cn_us_service"
+            android:enabled="true"
+            android:priority="1000" />
+        <service
+                android:name=".usd_aud.us_au_service"
+                android:enabled="true"
+                android:priority="1000" />
+    </application>
+
+</manifest>

@@ -18,7 +18,7 @@ public class cn_us_RE {
 
 
 //            URL url = new URL("http://www.boc.cn/sourcedb/whpj/enindex.html"); //create URl obj
-            URL url = new URL("http://www.boc.cn/sourcedb/whpj/");
+            URL url = new URL("https://www.boc.cn/sourcedb/whpj/");
             HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();// return an URLConnection obj
             InputStreamReader isr = new java.io.InputStreamReader(conn.getInputStream());
             BufferedReader br = new java.io.BufferedReader(isr);//create a character buffer using the input stream
@@ -48,7 +48,7 @@ public class cn_us_RE {
                     }
                 }else if(count==7){ // date line
 
-                    timestamp= temp.substring(9,14)+" ";
+                    timestamp = temp.substring(22, 27) + " ";
                 }else if(count==8){
 
                     timestamp+= temp.substring(4,9);
